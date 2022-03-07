@@ -18,11 +18,14 @@
 </script>
 
 <script lang="ts">
+	import { fly } from 'svelte/transition';
 	import PopularMovies from '../components/PoppularMovies.svelte';
+	import SearchMovie from '../components/SearchMovie.svelte';
 	import type { MovieType } from '../types/MovieType';
 	export let popular: MovieType[];
 </script>
 
-<section>
+<section in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
+	<SearchMovie />
 	<PopularMovies movies={popular} />
 </section>

@@ -3,8 +3,10 @@
 	export let movie: MovieType;
 </script>
 
+<!-- sveltekit:prefetch จะดึง api ของหน้านั้นๆ มาก่อนที่จะไปหน้านั้นๆ  -->
+<!-- sveltekit:noscroll ไม่ให้ค้าง scroll ไว้ตอนที่เลื่อนมาล่าง จะกลับไปที่ 0, 0 -->
 <div class="movie-card">
-	<a href={`/movie/${movie.id}`}>
+	<a sveltekit:prefetch sveltekit:noscroll href={`/movie/${movie.id}`}>
 		<img src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
 	</a>
 	<div class="description">

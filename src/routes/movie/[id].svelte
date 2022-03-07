@@ -22,11 +22,12 @@
 </script>
 
 <script lang="ts">
+	import { fly } from 'svelte/transition';
 	import type { MovieDetailType } from '../../types/MovieType';
 	export let movieDetail: MovieDetailType;
 </script>
 
-<div class="movie-details">
+<div class="movie-details"  in:fly={{y: 50, duration: 500, delay: 500}} out:fly={{ duration: 500}}>
 	<div class="img-container">
 		<img
 			src={`http://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
